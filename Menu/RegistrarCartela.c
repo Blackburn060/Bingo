@@ -5,10 +5,12 @@
 #include <math.h>
 #include <time.h>
 
-int global_Codigo_Participante, global_Numeros_Participante;
+int global_Codigo_Participante, *global_Numeros_Participante;
 
 void RegistrarCartela()
 {
+
+    global_Numeros_Participante = malloc(global_Qtd_participantes * sizeof(int));
 
     int opcao = 0;
 

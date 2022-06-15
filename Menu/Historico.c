@@ -8,7 +8,7 @@
 void Historico(){
 
     FILE *historico;
-    historico = fopen("Historico.txt", "w");
+    historico = fopen("Historico.txt", "a");
 
         for (int i = 0; i < global_FinalIntervaloDosNumeros; i++)
         {             

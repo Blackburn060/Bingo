@@ -6,7 +6,7 @@
 
 int global_Vetor_Numeros_Participante[999];
 
-void NumerosSorteados()
+void IniciarBingo()
 {
 
     printf("\n Números que foram sorteados dentro do intervalo! \n");
@@ -17,12 +17,8 @@ void NumerosSorteados()
     }
 
     printf("\n");
-}
 
-///////////////////////////////////////////////////////////////////////////////////////////////
-
-void CarregarIformacoes()
-{
+    ///////////////////////////////////////////////////////////////////////////////////////////////
 
     char participante[global_Qtd_participantes];
     int j;
@@ -38,14 +34,9 @@ void CarregarIformacoes()
         }
         fclose(cadastro_participante);
     }
-}
-/////////////////////////////////////////////////////////////////////////////////////////////
-
-void IniciarBingo()
-{
+    /////////////////////////////////////////////////////////////////////////////////////////////
 
     char premio[global_Qtd_participantes];
-    int j;
 
     for (int i = 0; i < global_Qtd_participantes; i++)
     {
@@ -66,9 +57,9 @@ void IniciarBingo()
                 if (global_Vetor_Numeros_Participante[i] == 0)
                 {
                     contZero++;
-                }  
+                }
             }
-            
+
             if (contZero == (global_TamanhoDoIntervalo)) // Verifica o vencedor
             {
                 cadastro_participante = fopen("Historico.txt", "w");
@@ -90,24 +81,16 @@ void IniciarBingo()
                 fputs(NomePremio, cadastro_participante);
 
                 fclose(cadastro_participante);
-
-                
-                printf("\n Números sorteados: ");
-                for (int i = 0; i < global_FinalIntervaloDosNumeros; i++)
-                {
-                printf(" %d ", global_resultadoDoIntervalo[i]);
-                }
                 return;
 
-                for (i = 0; i < global_Qtd_participantes; i++) 
+                for (i = 0; i < global_Qtd_participantes; i++)
                 {
-                    if (global_resultadoDoIntervalo[i] == global_Numeros_Participante) 
+                    if (global_resultadoDoIntervalo[i] == global_Numeros_Participante)
                     {
                         int auxiliar = auxiliar + 1;
                         printf("O participante %d acertou esses números: %d", i, auxiliar);
                     }
                 }
-
             }
         }
     }
